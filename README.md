@@ -38,10 +38,10 @@ the function behaves as you would expect.
 var result error
 
 if err := step1(); err != nil {
-	result = multierror.Append(result, err)
+	result = makosamengi.Append(result, err)
 }
 if err := step2(); err != nil {
-	result = multierror.Append(result, err)
+	result = makosamengi.Append(result, err)
 }
 
 return result
@@ -53,7 +53,7 @@ By specifying a custom `ErrorFormat`, you can customize the format
 of the `Error() string` function:
 
 ```go
-var result *multierror.Error
+var result *makosamengi.Error
 
 // ... accumulate errors here, maybe using Append
 
@@ -66,13 +66,13 @@ if result != nil {
 
 **Accessing the list of errors**
 
-`multierror.Error` implements `error` so if the caller doesn't know about
-multierror, it will work just fine. But if you're aware a multierror might
+`makosamengi.Error` implements `error` so if the caller doesn't know about
+makosamengi, it will work just fine. But if you're aware a makosamengi might
 be returned, you can use type switches to access the list of errors:
 
 ```go
 if err := something(); err != nil {
-	if merr, ok := err.(*multierror.Error); ok {
+	if merr, ok := err.(*makosamengi.Error); ok {
 		// Use merr.Errors
 	}
 }
@@ -84,10 +84,10 @@ function. This will continue to unwrap into subsequent errors until none exist.
 **Extracting an error**
 
 The standard library [`errors.As`](https://golang.org/pkg/errors/#As)
-function can be used directly with a multierror to extract a specific error:
+function can be used directly with a makosamengi to extract a specific error:
 
 ```go
-// Assume err is a multierror value
+// Assume err is a makosamengi value
 err := somefunc()
 
 // We want to know if "err" has a "RichErrorType" in it and extract it.
@@ -104,16 +104,16 @@ error in the `os` package. You can check if this error is present by using
 the standard [`errors.Is`](https://golang.org/pkg/errors/#Is) function.
 
 ```go
-// Assume err is a multierror value
+// Assume err is a makosamengi value
 err := somefunc()
 if errors.Is(err, os.ErrNotExist) {
 	// err contains os.ErrNotExist
 }
 ```
 
-**Returning a multierror only if there are errors**
+**Returning a makosamengi only if there are errors**
 
-If you build a `multierror.Error`, you can use the `ErrorOrNil` function
+If you build a `makosamengi.Error`, you can use the `ErrorOrNil` function
 to return an `error` implementation only if there are errors to return:
 
 ```go
@@ -121,7 +121,7 @@ var result *makosamengi.Error
 
 // ... accumulate errors here
 
-// Return the `error` only if errors were added to the makosamengi, 
+// Return the `error` only if errors were added to the makosamengi,
 // otherwise return nil since there are no errors.
 return result.ErrorOrNil()
 ```

@@ -99,7 +99,7 @@ func TestErrorUnwrap(t *testing.T) {
 		}
 	})
 
-	t.Run("with nil multierror", func(t *testing.T) {
+	t.Run("with nil makosamengi", func(t *testing.T) {
 		var err *Error
 		if errors.Unwrap(err) != nil {
 			t.Fatal("should be nil")
