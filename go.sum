@@ -1,0 +1,4 @@
+github.com/hashicorp/errwrap v1.0.0 h1:hLrqtEDnRye3+sgx6z4qVLNuviH3MR5aQ0ykNJa/UYA=
+github.com/hashicorp/errwrap v1.0.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brvKWEqk/Jc4=
+github.com/wondenge/kosa v0.0.0-20200418113644-85b4aa8a8497 h1:W7waun7BE5DlH1zSvKX0fHdTcSZSRafvLY/FPTDRWPI=
+github.com/wondenge/kosa v0.0.0-20200418113644-85b4aa8a8497/go.mod h1:8Bs+EP918D+KZRbpHI6K+E116ePIWRvxuFM71BoYDPw=
